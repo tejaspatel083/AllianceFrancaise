@@ -13,7 +13,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
         android:id="@+id/Host_Fragment"
-        app:navGraph="@navigation/nav_graph"
+        app:navGraph="@navigation/nav_graph1"
         />
 
 
