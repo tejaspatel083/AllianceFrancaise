@@ -25,6 +25,7 @@
         android:id="@+id/nv"
         android:layout_gravity="start"
         android:background="#000000"
+        android:theme="@style/ThemeToolbar"
         app:itemIconTint="#F3EE40"
         app:itemTextColor="#F3EE40"
         >
