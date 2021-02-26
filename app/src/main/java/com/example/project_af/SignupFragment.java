@@ -65,6 +65,7 @@ public class SignupFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        getActivity().setTitle("Signup");
         btnSignup = view.findViewById(R.id.CreateBtn);
         txtLogin = view.findViewById(R.id.LoginText);
 

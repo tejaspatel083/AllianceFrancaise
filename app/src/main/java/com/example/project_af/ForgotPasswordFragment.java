@@ -71,6 +71,7 @@ public class ForgotPasswordFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        getActivity().setTitle("Forgot Password?");
         btnSubmit = view.findViewById(R.id.ForgotSubmitBtn);
 
         View.OnClickListener navigate1 = Navigation.createNavigateOnClickListener(R.id.action_forgotPasswordFragment_to_loginFragment2);

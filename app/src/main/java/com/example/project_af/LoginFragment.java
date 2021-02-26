@@ -2,6 +2,7 @@ package com.example.project_af;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -58,6 +59,11 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        String color = "#F3EE40";
+        int c = Color.parseColor(color);
+
+        getActivity().setTitle("Login");
+        getActivity().setTitleColor(c);
         btnLogin = view.findViewById(R.id.MainLoginBtn);
         txtForgotPassword = view.findViewById(R.id.MainForgotPassword);
         txtSignup = view.findViewById(R.id.MainSignup);

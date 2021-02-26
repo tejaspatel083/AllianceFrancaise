@@ -17,7 +17,7 @@ public class LevelsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.fragment_levels,container,false);
-        getActivity().setTitle("Home");
+        getActivity().setTitle("Levels");
 
         return view;
     }

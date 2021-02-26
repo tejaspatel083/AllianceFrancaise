@@ -14,4 +14,11 @@
         <item name="android:textColorSecondary">@color/colorYellow</item>
     </style>
 
+
+
+    <style name="ThemeSelector" parent="@android:style/TextAppearance" id= "myTheme">
+        <item name="android:textColor">@color/colorYellow</item>
+    </style>
+
+
 </resources>
