@@ -79,7 +79,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast toast = Toast.makeText(getActivity(),"Login Successful",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getActivity(),"Login Successful",Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                 toast.show();
 

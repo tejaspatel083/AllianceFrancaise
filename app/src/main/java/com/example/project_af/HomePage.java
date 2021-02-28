@@ -35,7 +35,10 @@ public class HomePage extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        if (savedInstanceState == null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new PurposeFragment()).commit();
+        }
 
         navi.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -46,11 +49,22 @@ public class HomePage extends AppCompatActivity {
                 switch (item.getItemId())
                 {
 
+                    case R.id.Home :
+
+                        fragment = new LevelsFragment();
+                        break;
+
+                    case R.id.Profile :
+
+                        fragment = new ProfileFragment();
+                        break;
+
 
 
                     default:
                         fragment = new PurposeFragment();
                         break;
+
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();

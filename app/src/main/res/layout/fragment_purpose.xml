@@ -3,7 +3,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PurposeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PurposeFragment"
+    android:background="@drawable/gradient">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:text="Purpose of learning?"
+                android:textSize="35dp"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/group1"
+                android:layout_marginTop="100dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb1"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="Travel"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb2"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="School"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb3"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="Job"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb4"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="Culture"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb5"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="Family and Friends"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb6"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="Brain Traning"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb7"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
+                    android:text="Other"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#121212"/>
+
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 
 

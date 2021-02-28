@@ -3,7 +3,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LevelsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LevelsFragment"
+    android:background="@drawable/gradient">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:id="@+id/easyCard"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:outlineSpotShadowColor="#F3EE40"
+                android:outlineAmbientShadowColor="#F3EE40"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="#121212">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorYellow"
+                    android:text="Easy"
+                    android:textStyle="bold"
+                    android:textSize="60dp"
+                    android:layout_gravity="center"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:id="@+id/moderateCard"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="220dp"
+                android:outlineSpotShadowColor="#F3EE40"
+                android:outlineAmbientShadowColor="#F3EE40"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="#121212">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorYellow"
+                    android:text="Moderate"
+                    android:textStyle="bold"
+                    android:textSize="60dp"
+                    android:layout_gravity="center"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:id="@+id/difficultCard"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="420dp"
+                android:outlineSpotShadowColor="#F3EE40"
+                android:outlineAmbientShadowColor="#F3EE40"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="#121212">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorYellow"
+                    android:text="Difficult"
+                    android:textStyle="bold"
+                    android:textSize="60dp"
+                    android:layout_gravity="center"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 
 
