@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:drawableLeft="@drawable/ic_visibility_black_24dp"
                 android:layout_marginLeft="315dp"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:layout_marginTop="358dp"/>
             <TextView
                 android:id="@+id/notvisible1"
@@ -112,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:drawableLeft="@drawable/ic_visibility_black_24dp"
                 android:layout_marginLeft="315dp"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:layout_marginTop="418dp"/>
             <TextView
                 android:id="@+id/notvisible2"
