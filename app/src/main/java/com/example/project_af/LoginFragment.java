@@ -59,7 +59,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        
+
         getActivity().setTitle("Login");
         btnLogin = view.findViewById(R.id.MainLoginBtn);
         txtForgotPassword = view.findViewById(R.id.MainForgotPassword);

@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorYellow"
-                    android:text="Easy"
+                    android:text="Beginner"
                     android:textStyle="bold"
                     android:textSize="60dp"
                     android:layout_gravity="center"

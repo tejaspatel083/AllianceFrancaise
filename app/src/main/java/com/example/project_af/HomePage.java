@@ -59,6 +59,21 @@ public class HomePage extends AppCompatActivity {
                         fragment = new ProfileFragment();
                         break;
 
+                    case R.id.Beginner :
+
+                        fragment = new BeginnerFragment();
+                        break;
+
+                    case R.id.Moderate :
+
+                        fragment = new ModerateFragment();
+                        break;
+
+                    case R.id.Difficult :
+
+                        fragment = new DifficultFragment();
+                        break;
+
 
 
                     default:
