@@ -11,36 +11,39 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class LoginFragment extends Fragment {
 
     private Button btnLogin;
     private TextView txtForgotPassword,txtSignup;
+    private EditText pwd,emailId;
+    private TextView v1,iv1;
+    private FirebaseAuth firebaseAuth;
+
 
     //private OnFragmentInteractionListener mListener;
 
     public LoginFragment() {
         // Required empty public constructor
     }
-/*
-    public static LoginFragment newInstance(String param1, String param2) {
-        LoginFragment fragment = new LoginFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
- */
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,31 @@ public class LoginFragment extends Fragment {
         btnLogin = view.findViewById(R.id.MainLoginBtn);
         txtForgotPassword = view.findViewById(R.id.MainForgotPassword);
         txtSignup = view.findViewById(R.id.MainSignup);
+        pwd = view.findViewById(R.id.MainPassword);
+        emailId = view.findViewById(R.id.MainEmail);
+        v1 = view.findViewById(R.id.visible);
+        iv1 = view.findViewById(R.id.notvisible);
+
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+        v1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                v1.setVisibility(View.INVISIBLE);
+                iv1.setVisibility(View.VISIBLE);
+            }
+        });
+        iv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                iv1.setVisibility(View.INVISIBLE);
+                v1.setVisibility(View.VISIBLE);
+            }
+        });
 
 
         View.OnClickListener navigate1 = Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_forgotPasswordFragment);
@@ -76,46 +104,82 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast toast = Toast.makeText(getActivity(),"Login Successful",Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-                toast.show();
+                if (emailId.getText().toString().trim().length() == 0)
+                {
+                    emailId.setError("Email Id Required");
+                    Toast toast = Toast.makeText(getActivity(),"Enter Email",Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.show();
+                }
+                else if (pwd.getText().toString().trim().length() == 0)
+                {
+                    emailId.setError(null);
+                    pwd.setError("Password Required");
+                    Toast toast = Toast.makeText(getActivity(),"Enter Password",Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.show();
+                }
+                else
+                {
+                    emailId.setError(null);
+                    pwd.setError(null);
 
-                Intent intent = new Intent(getActivity(),HomePage.class);
-                startActivity(intent);
+                    String email = emailId.getText().toString().trim();
+                    String password = pwd.getText().toString().trim();
+
+
+                    firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if(task.isSuccessful())
+                            {
+
+                                checkEmailVerification();
+
+                            }
+                            else
+                            {
+
+                                Toast toast = Toast.makeText(getActivity(),"Enter Valid Email and Password",Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                                toast.show();
+                            }
+
+                        }
+                    });
+
+                }
+
+
+
+
             }
+
+
         });
     }
 
-    /*
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+
+    private void checkEmailVerification() {
+
+
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        Boolean emailflag = firebaseUser.isEmailVerified();
+
+        if(emailflag)
+        {
+
+            Toast.makeText(getActivity(), "Login SuccessFull", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(),HomePage.class);
+            startActivity(intent);
         }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+        else
+        {
+            Toast.makeText(getActivity(), "Please verify your Email", Toast.LENGTH_SHORT).show();
         }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
 
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
- */
 }

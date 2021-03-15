@@ -43,36 +43,17 @@ public class SignupFragment extends Fragment {
     private EditText user_pwd1,user_pwd2,user_name,user_email;
     private TextView v1,v2,iv1,iv2;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     //private OnFragmentInteractionListener mListener;
 
     public SignupFragment() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
-    public static SignupFragment newInstance(String param1, String param2) {
-        SignupFragment fragment = new SignupFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -211,7 +192,7 @@ public class SignupFragment extends Fragment {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful())
                     {
-                        //sendData();
+
                         firebaseAuth.signOut();
                         //finish();
 
@@ -239,37 +220,6 @@ public class SignupFragment extends Fragment {
 
 
     }
-/*
-    private void sendData() {
-
-
-
-        String name = user_name.getText().toString().trim();
-        String email = user_email.getText().toString().trim();
-
-        UserInfo obj = new UserInfo(name,email);
-
-        db.collection("User Profile Information")
-                .document(firebaseAuth.getUid())
-                .set(obj)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-
-
-
-    }
-
- */
 
 
 }
