@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".QuizBeginnerFragment"
+    android:background="@drawable/gradient">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:id="@+id/quizImage1"
+                android:src="@drawable/ic_image_black_24dp"/>
+
+
+            <Button
+                android:layout_width="330sp"
+                android:layout_height="70sp"
+                android:id="@+id/btn11"
+                android:background="@drawable/button_background_2"
+                android:layout_marginTop="350dp"
+                android:layout_centerHorizontal="true"
+                android:text="A."
+                android:gravity="left"
+                android:paddingLeft="25dp"
+                android:textColor="#F3EE40"
+                android:textSize="50sp"/>
+
+            <Button
+                android:layout_width="330sp"
+                android:layout_height="70sp"
+                android:id="@+id/btn12"
+                android:background="@drawable/button_background_2"
+                android:layout_marginTop="450dp"
+                android:layout_centerHorizontal="true"
+                android:text="B."
+                android:gravity="left"
+                android:paddingLeft="25dp"
+                android:textColor="#F3EE40"
+                android:textSize="50sp"/>
+
+            <Button
+                android:layout_width="330sp"
+                android:layout_height="70sp"
+                android:id="@+id/btn13"
+                android:background="@drawable/button_background_2"
+                android:layout_marginTop="550dp"
+                android:layout_centerHorizontal="true"
+                android:text="C."
+                android:gravity="left"
+                android:paddingLeft="25dp"
+                android:textColor="#F3EE40"
+                android:textSize="50sp"/>
+
+            <Button
+                android:layout_width="330sp"
+                android:layout_height="70sp"
+                android:id="@+id/btn14"
+                android:background="@drawable/button_background_2"
+                android:layout_marginTop="650dp"
+                android:layout_centerHorizontal="true"
+                android:text="D."
+                android:gravity="left"
+                android:paddingLeft="25dp"
+                android:textColor="#F3EE40"
+                android:textSize="50sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="650dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

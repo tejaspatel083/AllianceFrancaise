@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "183204225850",
+    "project_id": "alliancefrancaise-68d75",
+    "storage_bucket": "alliancefrancaise-68d75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183204225850:android:92903940b0d663eaad6603",
+        "android_client_info": {
+          "package_name": "com.example.project_af"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183204225850-gsiod7mti3954uk6ieud58itk2n787kh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA848lqO68XoSVTlPcZPN-ohN2Ck3rHuYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183204225850-gsiod7mti3954uk6ieud58itk2n787kh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

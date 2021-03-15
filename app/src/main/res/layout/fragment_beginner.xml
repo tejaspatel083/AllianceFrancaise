@@ -92,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:text="Quiz/Test"
                 android:textSize="30dp"
+                android:id="@+id/quizClick"
                 android:layout_marginTop="335dp"
                 android:layout_marginLeft="30dp"/>
 

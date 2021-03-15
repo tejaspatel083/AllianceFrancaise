@@ -44,6 +44,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                item.setCheckable(true);
                 Fragment fragment = null;
 
                 switch (item.getItemId())
@@ -97,6 +98,7 @@ public class HomePage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
 
         if (t.onOptionsItemSelected(item))
         {
