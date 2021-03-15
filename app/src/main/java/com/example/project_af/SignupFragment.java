@@ -163,7 +163,7 @@ public class SignupFragment extends Fragment {
 
                             if(task.isSuccessful())
                             {
-                                //sendEmailVerification();
+                                sendEmailVerification();
 
                             }
 
@@ -221,9 +221,8 @@ public class SignupFragment extends Fragment {
                         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                         toast.show();
 
-                        LoginFragment fragment = new LoginFragment();
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragmentContainer,new LoginFragment()).commit();
+                        startActivity(new Intent(getActivity(),MainActivity.class));
+
 
                     }
 
