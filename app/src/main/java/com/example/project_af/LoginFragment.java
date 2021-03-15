@@ -56,6 +56,7 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
+
     }
 
     @Override
@@ -74,6 +75,12 @@ public class LoginFragment extends Fragment {
 
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if (firebaseAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(getActivity(), HomePage.class);
+            startActivity(intent);
+        }
+
 
 
         v1.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +106,8 @@ public class LoginFragment extends Fragment {
 
         txtForgotPassword.setOnClickListener(navigate1);
         txtSignup.setOnClickListener(navigate2);
+
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

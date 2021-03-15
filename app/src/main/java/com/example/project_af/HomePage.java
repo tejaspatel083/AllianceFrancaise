@@ -14,12 +14,14 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomePage extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView navi;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class HomePage extends AppCompatActivity {
         navi = findViewById(R.id.nv);
         dl = findViewById(R.id.drawer_layout);
         t = new ActionBarDrawerToggle(this,dl,R.string.nav_drawer_open,R.string.nav_drawer_close);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         dl.addDrawerListener(t);
         t.syncState();
@@ -73,6 +77,16 @@ public class HomePage extends AppCompatActivity {
                     case R.id.Difficult :
 
                         fragment = new DifficultFragment();
+                        break;
+
+                    case R.id.Logout :
+
+                        Toast toast = Toast.makeText(HomePage.this,"Logged out",Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                        toast.show();
+                        firebaseAuth.signOut();
+                        fragment = new LoginFragment();
+                        finish();
                         break;
 
 
