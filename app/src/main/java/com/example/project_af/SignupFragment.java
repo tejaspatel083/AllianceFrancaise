@@ -77,6 +77,7 @@ public class SignupFragment extends Fragment {
         iv2 = view.findViewById(R.id.notvisible2);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
         v1.setOnClickListener(new View.OnClickListener() {
@@ -188,17 +189,7 @@ public class SignupFragment extends Fragment {
                     if(task.isSuccessful())
                     {
 
-                        firebaseAuth.signOut();
-                        //finish();
-
-
-
-                        Toast toast = Toast.makeText(getActivity(),"Registration Completed.\nVerify Email",Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-                        toast.show();
-
-                        startActivity(new Intent(getActivity(),MainActivity.class));
-
+                        sendData();
 
                     }
 
@@ -212,6 +203,47 @@ public class SignupFragment extends Fragment {
             });
 
         }
+
+
+    }
+
+    private void sendData()
+    {
+
+        String name = user_name.getText().toString().trim();
+        String email = user_email.getText().toString().trim();
+
+        UserInfo obj1 = new UserInfo(name,email);
+
+        db.collection("User Profile Information")
+                .document(firebaseAuth.getUid())
+                .set(obj1)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (task.isSuccessful())
+                        {
+                            Toast.makeText(getActivity().getApplicationContext(),"Registration Successful!",Toast.LENGTH_LONG).show();
+                            FirebaseAuth.getInstance().signOut();
+
+                            startActivity(new Intent(getActivity(),MainActivity.class));
+
+
+                        }else
+                        {
+                            Toast.makeText(getActivity().getApplicationContext(),"FireStore Error!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(getActivity(), "Something Wrong", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
 
     }
