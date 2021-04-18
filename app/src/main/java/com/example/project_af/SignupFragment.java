@@ -226,7 +226,7 @@ public class SignupFragment extends Fragment {
                         {
                             Toast.makeText(getActivity().getApplicationContext(),"Registration Successful!",Toast.LENGTH_LONG).show();
                             FirebaseAuth.getInstance().signOut();
-
+                            getActivity().finish();
                             startActivity(new Intent(getActivity(),MainActivity.class));
 
 
