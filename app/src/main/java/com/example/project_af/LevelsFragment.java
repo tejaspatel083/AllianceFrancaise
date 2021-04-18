@@ -37,6 +37,7 @@ public class LevelsFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentContainer,new BeginnerFragment()).commit();
 
+
             }
         });
 
@@ -61,6 +62,7 @@ public class LevelsFragment extends Fragment {
 
             }
         });
+
 
 
         return view;

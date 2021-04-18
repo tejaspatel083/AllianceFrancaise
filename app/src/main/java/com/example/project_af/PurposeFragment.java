@@ -3,7 +3,9 @@ package com.example.project_af;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class PurposeFragment extends Fragment {
@@ -22,13 +25,13 @@ public class PurposeFragment extends Fragment {
 
     private RadioGroup radioGroup;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.fragment_purpose,container,false);
         getActivity().setTitle("Purpose of Learning");
-
 
 
         radioGroup = view.findViewById(R.id.group1);
@@ -82,6 +85,11 @@ public class PurposeFragment extends Fragment {
             }
         });
 
+
+
+
         return view;
     }
+
+
 }

@@ -39,6 +39,7 @@ public class BeginnerFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 }

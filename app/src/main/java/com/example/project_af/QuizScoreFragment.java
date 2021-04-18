@@ -20,7 +20,6 @@ public class QuizScoreFragment extends Fragment {
         getActivity().setTitle("Quiz Score");
 
 
-
         return view;
     }
 }

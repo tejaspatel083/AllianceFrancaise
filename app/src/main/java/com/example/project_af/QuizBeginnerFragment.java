@@ -36,6 +36,7 @@ public class QuizBeginnerFragment extends Fragment {
         });
 
 
+
         return view;
     }
 }
