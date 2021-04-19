@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -29,6 +30,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
 
@@ -37,9 +41,10 @@ public class ProfileFragment extends Fragment {
     private EditText edit_name;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
+    private ImageView dp;
     private FirebaseUser currentUser;
-    private Handler handler = new Handler();
-    private Runnable refresh;
+    private FirebaseStorage firebaseStorage;
+
 
 
     @Nullable
@@ -49,6 +54,7 @@ public class ProfileFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_profile,container,false);
         getActivity().setTitle("Profile");
 
+        dp = view.findViewById(R.id.ProfileImage);
         button = view.findViewById(R.id.ProfileUpdateButton);
         name = view.findViewById(R.id.ProfileName);
         email = view.findViewById(R.id.ProfileEmail);
@@ -56,6 +62,21 @@ public class ProfileFragment extends Fragment {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        firebaseStorage = FirebaseStorage.getInstance();
+
+
+        StorageReference storageReference = firebaseStorage.getReference();
+        storageReference.child("User Profile Images")
+                .child(firebaseAuth.getUid())
+                .getDownloadUrl()
+                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Picasso.get().load(uri).into(dp);
+
+                    }
+                });
 
         getData();
 
