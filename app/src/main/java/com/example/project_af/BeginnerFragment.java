@@ -13,11 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class BeginnerFragment extends Fragment {
 
 
     private TextView t1;
+    private NavController navController;
+
 
     @Nullable
     @Override
@@ -26,16 +30,16 @@ public class BeginnerFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_beginner,container,false);
         getActivity().setTitle("Beginner");
 
+        navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
 
-        t1 = view.findViewById(R.id.quizClick);
+
+        t1 = view.findViewById(R.id.quizClick1);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                QuizBeginnerFragment fragment = new QuizBeginnerFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentContainer,new QuizBeginnerFragment()).commit();
+                navController.navigate(R.id.quizBeginnerFragment);
             }
         });
 

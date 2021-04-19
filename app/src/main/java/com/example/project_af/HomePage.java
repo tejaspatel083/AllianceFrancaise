@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -22,6 +26,8 @@ public class HomePage extends AppCompatActivity {
     private ActionBarDrawerToggle t;
     private NavigationView navi;
     private FirebaseAuth firebaseAuth;
+    private NavController navController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,8 @@ public class HomePage extends AppCompatActivity {
         dl = findViewById(R.id.drawer_layout);
         t = new ActionBarDrawerToggle(this,dl,R.string.nav_drawer_open,R.string.nav_drawer_close);
 
+        navController = Navigation.findNavController(HomePage.this,R.id.Host_Fragment2);
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         dl.addDrawerListener(t);
@@ -41,7 +49,7 @@ public class HomePage extends AppCompatActivity {
 
         if (savedInstanceState == null)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new PurposeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Host_Fragment2,new PurposeFragment()).commit();
         }
 
         navi.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -56,27 +64,27 @@ public class HomePage extends AppCompatActivity {
 
                     case R.id.Home :
 
-                        fragment = new LevelsFragment();
+                        navController.navigate(R.id.levelsFragment);
                         break;
 
                     case R.id.Profile :
 
-                        fragment = new ProfileFragment();
+                        navController.navigate(R.id.profileFragment);
                         break;
 
                     case R.id.Beginner :
 
-                        fragment = new BeginnerFragment();
+                        navController.navigate(R.id.beginnerFragment);
                         break;
 
                     case R.id.Moderate :
 
-                        fragment = new ModerateFragment();
+                        navController.navigate(R.id.moderateFragment);
                         break;
 
                     case R.id.Difficult :
 
-                        fragment = new DifficultFragment();
+                        navController.navigate(R.id.difficultFragment);
                         break;
 
                     case R.id.Logout :
@@ -89,17 +97,7 @@ public class HomePage extends AppCompatActivity {
                         finish();
                         break;
 
-
-
-                    default:
-                        fragment = new PurposeFragment();
-                        break;
-
-
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
-
-
 
                 dl.closeDrawer(GravityCompat.START);
                 return false;
@@ -121,6 +119,25 @@ public class HomePage extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /*
+    @Override
+    public void onBackPressed() {
+
+        int fragmentCount = getSupportFragmentManager().getBackStackEntryCount();
+        if (fragmentCount == 1) {
+            finish();
+        } else {
+            if (fragmentCount > 1) {
+                getFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
+
+        }
+    }
+
+     */
 
 
 }

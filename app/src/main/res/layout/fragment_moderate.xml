@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ModerateFragment"
+    android:id="@+id/moderateFragment"
     android:background="@drawable/gradient">
 
 
@@ -78,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:text="Quiz/Test"
                 android:textSize="30dp"
+                android:id="@+id/quizClick2"
                 android:layout_marginTop="280dp"
                 android:layout_marginLeft="30dp"/>
 

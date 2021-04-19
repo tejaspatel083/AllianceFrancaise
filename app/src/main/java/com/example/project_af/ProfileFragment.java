@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -42,6 +46,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
     private ImageView dp;
+    private NavController navController;
     private FirebaseUser currentUser;
     private FirebaseStorage firebaseStorage;
 
@@ -59,6 +64,8 @@ public class ProfileFragment extends Fragment {
         name = view.findViewById(R.id.ProfileName);
         email = view.findViewById(R.id.ProfileEmail);
         db = FirebaseFirestore.getInstance();
+
+        navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -128,7 +135,7 @@ public class ProfileFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.custom_dialog,null);
+        final View view = layoutInflater.inflate(R.layout.custom_dialog,null);
 
         edit_name = view.findViewById(R.id.updateName);
 
@@ -160,12 +167,11 @@ public class ProfileFragment extends Fragment {
                             public void onComplete(@NonNull Task<Void> task) {
 
 
-                                getActivity().recreate();
-
+                                navController.navigate(R.id.profileFragment);
                                 Toast toast = Toast.makeText(getActivity(),"Profile Updated",Toast.LENGTH_LONG);
                                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                                 toast.show();
-
+                                //getActivity().recreate();
 
                             }
                         })

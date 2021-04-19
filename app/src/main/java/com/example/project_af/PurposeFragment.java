@@ -19,11 +19,15 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class PurposeFragment extends Fragment {
 
 
     private RadioGroup radioGroup;
+    private NavController navController;
+
 
 
     @Nullable
@@ -32,6 +36,10 @@ public class PurposeFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_purpose,container,false);
         getActivity().setTitle("Purpose of Learning");
+
+        View.OnClickListener navigate1 = Navigation.createNavigateOnClickListener(R.id.action_purposeFragment_to_levelsFragment);
+
+        navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
 
 
         radioGroup = view.findViewById(R.id.group1);
@@ -42,6 +50,7 @@ public class PurposeFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
 
+                /*
                 if (checkedId==R.id.rb1)
                 {
                     Toast.makeText(getActivity(), "Travel", Toast.LENGTH_SHORT).show();
@@ -77,11 +86,10 @@ public class PurposeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Other", Toast.LENGTH_SHORT).show();
 
                 }
+                
+                 */
 
-                LevelsFragment fragment = new LevelsFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentContainer,new LevelsFragment()).commit();
-
+                navController.navigate(R.id.levelsFragment);
             }
         });
 

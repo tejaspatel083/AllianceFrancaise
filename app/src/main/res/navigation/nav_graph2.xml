@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/purposeFragment">
+    <fragment
+        android:id="@+id/levelsFragment"
+        android:name="com.example.project_af.LevelsFragment"
+        android:label="fragment_levels"
+        tools:layout="@layout/fragment_levels" >
+        <action
+            android:id="@+id/action_levelsFragment_to_beginnerFragment"
+            app:destination="@id/beginnerFragment" />
+        <action
+            android:id="@+id/action_levelsFragment_to_moderateFragment"
+            app:destination="@id/moderateFragment" />
+        <action
+            android:id="@+id/action_levelsFragment_to_difficultFragment"
+            app:destination="@id/difficultFragment" />
+        <action
+            android:id="@+id/action_levelsFragment_self"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_levelsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/beginnerFragment"
+        android:name="com.example.project_af.BeginnerFragment"
+        android:label="fragment_beginner"
+        tools:layout="@layout/fragment_beginner" >
+        <action
+            android:id="@+id/action_beginnerFragment_to_quizBeginnerFragment"
+            app:destination="@id/quizBeginnerFragment" />
+        <action
+            android:id="@+id/action_beginnerFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_beginnerFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_beginnerFragment_self"
+            app:destination="@id/beginnerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/difficultFragment"
+        android:name="com.example.project_af.DifficultFragment"
+        android:label="fragment_difficult"
+        tools:layout="@layout/fragment_difficult" >
+        <action
+            android:id="@+id/action_difficultFragment_to_quizDifficultFragment"
+            app:destination="@id/quizDifficultFragment" />
+        <action
+            android:id="@+id/action_difficultFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_difficultFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_difficultFragment_self"
+            app:destination="@id/difficultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moderateFragment"
+        android:name="com.example.project_af.ModerateFragment"
+        android:label="fragment_moderate"
+        tools:layout="@layout/fragment_moderate" >
+        <action
+            android:id="@+id/action_moderateFragment_to_quizModerateFragment"
+            app:destination="@id/quizModerateFragment" />
+        <action
+            android:id="@+id/action_moderateFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_moderateFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_moderateFragment_self"
+            app:destination="@id/moderateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizBeginnerFragment"
+        android:name="com.example.project_af.QuizBeginnerFragment"
+        android:label="fragment_quiz_beginner"
+        tools:layout="@layout/fragment_quiz_beginner" >
+        <action
+            android:id="@+id/action_quizBeginnerFragment_to_beginnerFragment"
+            app:destination="@id/beginnerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizModerateFragment"
+        android:name="com.example.project_af.QuizModerateFragment"
+        android:label="fragment_quiz_moderate"
+        tools:layout="@layout/fragment_quiz_moderate" >
+        <action
+            android:id="@+id/action_quizModerateFragment_to_moderateFragment"
+            app:destination="@id/moderateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizDifficultFragment"
+        android:name="com.example.project_af.QuizDifficultFragment"
+        android:label="fragment_quiz_difficult"
+        tools:layout="@layout/fragment_quiz_difficult" >
+        <action
+            android:id="@+id/action_quizDifficultFragment_to_difficultFragment"
+            app:destination="@id/difficultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/purposeFragment"
+        android:name="com.example.project_af.PurposeFragment"
+        android:label="fragment_purpose"
+        tools:layout="@layout/fragment_purpose" >
+        <action
+            android:id="@+id/action_purposeFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_purposeFragment_to_beginnerFragment"
+            app:destination="@id/beginnerFragment" />
+        <action
+            android:id="@+id/action_purposeFragment_to_moderateFragment"
+            app:destination="@id/moderateFragment" />
+        <action
+            android:id="@+id/action_purposeFragment_to_difficultFragment"
+            app:destination="@id/difficultFragment" />
+        <action
+            android:id="@+id/action_purposeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_purposeFragment_self"
+            app:destination="@id/purposeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.project_af.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_beginnerFragment"
+            app:destination="@id/beginnerFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_moderateFragment"
+            app:destination="@id/moderateFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_difficultFragment"
+            app:destination="@id/difficultFragment" />
+        <action
+            android:id="@+id/action_profileFragment_self"
+            app:destination="@id/profileFragment" />
+    </fragment>
+</navigation>
