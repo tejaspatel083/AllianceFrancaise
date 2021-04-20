@@ -157,6 +157,7 @@ public class ProfileFragment extends Fragment {
                 String name = edit_name.getText().toString().trim();
 
                 UserInfo userInfo = new UserInfo(name);
+                
 
 
                 db.collection("User Profile Information")

@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_beginnerFragment_self"
             app:destination="@id/beginnerFragment" />
+        <action
+            android:id="@+id/action_beginnerFragment_to_numbersFragment"
+            app:destination="@id/numbersFragment" />
     </fragment>
     <fragment
         android:id="@+id/difficultFragment"
@@ -150,5 +153,29 @@
         <action
             android:id="@+id/action_profileFragment_self"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/numbersFragment"
+        android:name="com.example.project_af.NumbersFragment"
+        android:label="fragment_numbers"
+        tools:layout="@layout/fragment_numbers" >
+        <action
+            android:id="@+id/action_numbersFragment_to_beginnerFragment"
+            app:destination="@id/beginnerFragment" />
+        <action
+            android:id="@+id/action_numbersFragment_to_moderateFragment"
+            app:destination="@id/moderateFragment" />
+        <action
+            android:id="@+id/action_numbersFragment_to_difficultFragment"
+            app:destination="@id/difficultFragment" />
+        <action
+            android:id="@+id/action_numbersFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+        <action
+            android:id="@+id/action_numbersFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_numbersFragment_to_purposeFragment"
+            app:destination="@id/purposeFragment" />
     </fragment>
 </navigation>
