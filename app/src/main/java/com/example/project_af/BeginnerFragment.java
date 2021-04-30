@@ -19,7 +19,7 @@ import androidx.navigation.Navigation;
 public class BeginnerFragment extends Fragment {
 
 
-    private TextView t1,t2;
+    private TextView t1,t2,t3,t4;
     private NavController navController;
 
 
@@ -35,7 +35,9 @@ public class BeginnerFragment extends Fragment {
 
 
         t1 = view.findViewById(R.id.beginnerNumbers);
-        t2 = view.findViewById(R.id.beginnerQuiz);
+        t2 = view.findViewById(R.id.beginnerDays);
+        t3 = view.findViewById(R.id.beginnerMonths);
+        t4 = view.findViewById(R.id.beginnerQuiz);
 
 
 
@@ -51,7 +53,15 @@ public class BeginnerFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                navController.navigate(R.id.quizBeginnerFragment);
+                navController.navigate(R.id.days);
+            }
+        });
+
+        t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                navController.navigate(R.id.months);
             }
         });
 

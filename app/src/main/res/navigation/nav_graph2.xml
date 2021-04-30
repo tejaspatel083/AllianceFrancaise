@@ -129,9 +129,7 @@
         <action
             android:id="@+id/action_purposeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_purposeFragment_self"
-            app:destination="@id/purposeFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -178,4 +176,19 @@
             android:id="@+id/action_numbersFragment_to_purposeFragment"
             app:destination="@id/purposeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/days"
+        android:name="com.example.project_af.Days"
+        android:label="fragment_days"
+        tools:layout="@layout/fragment_days" />
+    <fragment
+        android:id="@+id/months"
+        android:name="com.example.project_af.Months"
+        android:label="fragment_months"
+        tools:layout="@layout/fragment_months" />
+    <fragment
+        android:id="@+id/greetings"
+        android:name="com.example.project_af.Greetings"
+        android:label="fragment_greetings"
+        tools:layout="@layout/fragment_greetings" />
 </navigation>
