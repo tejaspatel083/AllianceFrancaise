@@ -1,5 +1,6 @@
 package com.example.project_af;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class Days extends Fragment {
     ListView listView;
     private static DaysCustomAdapter adapter;
     FirebaseFirestore fireStore;
+    private ProgressDialog progressDialog;
 
 
 
@@ -43,6 +45,8 @@ public class Days extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_days,container,false);
         getActivity().setTitle("Days");
 
+
+        progressDialog = new ProgressDialog(getContext());
 
         listView=view.findViewById(R.id.daysList);
 
@@ -57,10 +61,14 @@ public class Days extends Fragment {
 
     private void readData() {
 
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
         fireStore.collection("Learning").document("Beginner")
                 .collection("Days").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
 
 
                 if (task.isSuccessful()) {
@@ -73,12 +81,14 @@ public class Days extends Fragment {
 
                         listView.setAdapter(adapter);
 
+
                     }
-                    //Log.d(TAG, list.toString());
+
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
 
+                progressDialog.dismiss();
             }
         });
     }

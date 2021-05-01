@@ -19,7 +19,7 @@ import androidx.navigation.Navigation;
 public class ModerateFragment extends Fragment {
 
     private NavController navController;
-    private TextView t1;
+    private TextView t1,t2,t3,t4;
 
 
     @Nullable
@@ -32,13 +32,23 @@ public class ModerateFragment extends Fragment {
 
         navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
 
-        t1 = view.findViewById(R.id.quizClick2);
+        t1 = view.findViewById(R.id.moderateGreetings);
+        t2 = view.findViewById(R.id.moderateOccupations);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                navController.navigate(R.id.quizModerateFragment);
+                navController.navigate(R.id.greetings);
+            }
+        });
+
+
+        t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                navController.navigate(R.id.occupations);
             }
         });
 

@@ -2,7 +2,7 @@ package com.example.project_af;
 
 public class DaysDataModel {
 
-    String English,French;
+    String English,French,Pronounce;
 
     public DaysDataModel() {
     }
@@ -10,6 +10,12 @@ public class DaysDataModel {
     public DaysDataModel(String english, String french) {
         English = english;
         French = french;
+    }
+
+    public DaysDataModel(String english, String french, String pronounce) {
+        English = english;
+        French = french;
+        Pronounce = pronounce;
     }
 
     public String getEnglish() {
@@ -26,5 +32,13 @@ public class DaysDataModel {
 
     public void setFrench(String french) {
         French = french;
+    }
+
+    public String getPronounce() {
+        return Pronounce;
+    }
+
+    public void setPronounce(String pronounce) {
+        Pronounce = pronounce;
     }
 }

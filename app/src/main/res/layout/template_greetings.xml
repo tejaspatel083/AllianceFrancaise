@@ -5,14 +5,13 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/daysEnglish"
+        android:id="@+id/greetingsEnglish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ENGLISH"
         android:layout_marginTop="10dp"
         android:textSize="30dp"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
         android:layout_marginLeft="10dp"/>
 
     <TextView
@@ -22,20 +21,30 @@
         android:layout_marginTop="10dp"
         android:textSize="30dp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_marginLeft="190dp"/>
 
 
     <TextView
-        android:id="@+id/daysFrench"
+        android:id="@+id/greetingsFrench"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FRENCH"
         android:layout_marginTop="10dp"
         android:textSize="30dp"
-        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="255dp"/>
+
+
+    <TextView
+        android:id="@+id/greetingsPronounce"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Pronounce"
+        android:layout_marginTop="50dp"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginLeft="238dp"/>
 
 
 

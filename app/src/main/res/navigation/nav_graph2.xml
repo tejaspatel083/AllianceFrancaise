@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_moderateFragment_self"
             app:destination="@id/moderateFragment" />
+        <action
+            android:id="@+id/action_moderateFragment_to_occupations"
+            app:destination="@id/occupations" />
     </fragment>
     <fragment
         android:id="@+id/quizBeginnerFragment"
@@ -191,4 +194,9 @@
         android:name="com.example.project_af.Greetings"
         android:label="fragment_greetings"
         tools:layout="@layout/fragment_greetings" />
+    <fragment
+        android:id="@+id/occupations"
+        android:name="com.example.project_af.Occupations"
+        android:label="fragment_occupations"
+        tools:layout="@layout/fragment_occupations" />
 </navigation>

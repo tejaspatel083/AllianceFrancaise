@@ -33,6 +33,7 @@
                 android:layout_marginTop="115dp"/>
 
             <TextView
+                android:id="@+id/moderateGreetings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Greetings"
@@ -47,6 +48,7 @@
                 android:layout_marginTop="170dp"/>
 
             <TextView
+                android:id="@+id/moderateOccupations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Occupations"
@@ -61,6 +63,7 @@
                 android:layout_marginTop="220dp"/>
 
             <TextView
+                android:id="@+id/moderatePlaces"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Places"
@@ -79,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Quiz/Test"
                 android:textSize="30dp"
-                android:id="@+id/quizClick2"
+                android:id="@+id/moderateQuiz"
                 android:layout_marginTop="280dp"
                 android:layout_marginLeft="30dp"/>
 

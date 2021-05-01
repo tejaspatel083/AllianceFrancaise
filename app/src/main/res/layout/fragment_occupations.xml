@@ -3,26 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Greetings"
+    tools:context=".Occupations"
     android:background="@drawable/gradient">
-
-
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Greetings"
+        android:text="Occupations"
         android:textSize="35dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"/>
 
-    <ListView
-        android:id="@+id/greetingsList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerview"
+        android:layout_marginTop="120dp"/>
 
 </RelativeLayout>

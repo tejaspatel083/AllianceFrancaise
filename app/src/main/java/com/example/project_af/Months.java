@@ -1,5 +1,6 @@
 package com.example.project_af;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,14 +25,7 @@ import java.util.ArrayList;
 import static androidx.constraintlayout.motion.widget.MotionScene.TAG;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Months.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Months#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Months extends Fragment {
 
 
@@ -39,6 +33,8 @@ public class Months extends Fragment {
     ListView listView;
     private static DaysCustomAdapter adapter;
     FirebaseFirestore fireStore;
+    private ProgressDialog progressDialog;
+
 
 
     @Override
@@ -47,6 +43,9 @@ public class Months extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_months,container,false);
         getActivity().setTitle("Months");
+
+
+        progressDialog = new ProgressDialog(getContext());
 
 
         listView=view.findViewById(R.id.monthsList);
@@ -62,6 +61,10 @@ public class Months extends Fragment {
 
 
     private void readData() {
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
 
         fireStore.collection("Learning").document("Beginner")
                 .collection("Months").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -80,10 +83,12 @@ public class Months extends Fragment {
                         listView.setAdapter(adapter);
 
                     }
-                    //Log.d(TAG, list.toString());
+
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
+
+                progressDialog.dismiss();
 
             }
         });

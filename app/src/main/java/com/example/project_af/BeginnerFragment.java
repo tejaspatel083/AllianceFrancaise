@@ -1,6 +1,7 @@
 package com.example.project_af;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,6 @@ public class BeginnerFragment extends Fragment {
     private TextView t1,t2,t3,t4;
     private NavController navController;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class BeginnerFragment extends Fragment {
         getActivity().setTitle("Beginner");
 
         navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
-
 
 
         t1 = view.findViewById(R.id.beginnerNumbers);
