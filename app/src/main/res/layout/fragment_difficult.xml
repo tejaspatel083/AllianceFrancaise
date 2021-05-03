@@ -33,6 +33,7 @@
                 android:layout_marginTop="115dp"/>
 
             <TextView
+                android:id="@+id/difficultActions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Actions (Verbs)"
@@ -47,6 +48,7 @@
                 android:layout_marginTop="170dp"/>
 
             <TextView
+                android:id="@+id/difficultSentence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sentences"
@@ -65,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Quiz/Test"
                 android:textSize="30dp"
-                android:id="@+id/quizClick3"
+                android:id="@+id/difficultQuiz"
                 android:layout_marginTop="225dp"
                 android:layout_marginLeft="30dp"/>
 

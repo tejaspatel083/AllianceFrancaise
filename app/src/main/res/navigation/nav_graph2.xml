@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_difficultFragment_self"
             app:destination="@id/difficultFragment" />
+        <action
+            android:id="@+id/action_difficultFragment_to_actions2"
+            app:destination="@id/actions2" />
     </fragment>
     <fragment
         android:id="@+id/moderateFragment"
@@ -207,4 +210,14 @@
         android:name="com.example.project_af.Places"
         android:label="fragment_places"
         tools:layout="@layout/fragment_places" />
+    <fragment
+        android:id="@+id/actions2"
+        android:name="com.example.project_af.Actions"
+        android:label="fragment_actions"
+        tools:layout="@layout/fragment_actions" />
+    <fragment
+        android:id="@+id/sentences"
+        android:name="com.example.project_af.Sentences"
+        android:label="fragment_sentences"
+        tools:layout="@layout/fragment_sentences" />
 </navigation>

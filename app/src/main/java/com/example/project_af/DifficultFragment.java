@@ -19,7 +19,7 @@ import androidx.navigation.Navigation;
 public class DifficultFragment extends Fragment {
 
     private NavController navController;
-    private TextView t1;
+    private TextView t1,t2,t3;
 
     @Nullable
     @Override
@@ -30,13 +30,23 @@ public class DifficultFragment extends Fragment {
 
         navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
 
-        t1 = view.findViewById(R.id.quizClick3);
+        t1 = view.findViewById(R.id.difficultActions);
+        t2 = view.findViewById(R.id.difficultSentence);
+        t3 = view.findViewById(R.id.difficultQuiz);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                navController.navigate(R.id.quizDifficultFragment);
+                navController.navigate(R.id.actions2);
+            }
+        });
+
+        t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                navController.navigate(R.id.sentences);
             }
         });
 
