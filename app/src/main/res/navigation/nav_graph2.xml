@@ -99,6 +99,9 @@
         <action
             android:id="@+id/action_quizBeginnerFragment_to_beginnerFragment"
             app:destination="@id/beginnerFragment" />
+        <action
+            android:id="@+id/action_quizBeginnerFragment_to_quizScoreFragment"
+            app:destination="@id/quizScoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizModerateFragment"
@@ -108,6 +111,9 @@
         <action
             android:id="@+id/action_quizModerateFragment_to_moderateFragment"
             app:destination="@id/moderateFragment" />
+        <action
+            android:id="@+id/action_quizModerateFragment_to_quizScoreFragment"
+            app:destination="@id/quizScoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizDifficultFragment"
@@ -117,6 +123,9 @@
         <action
             android:id="@+id/action_quizDifficultFragment_to_difficultFragment"
             app:destination="@id/difficultFragment" />
+        <action
+            android:id="@+id/action_quizDifficultFragment_to_quizScoreFragment"
+            app:destination="@id/quizScoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/purposeFragment"
@@ -220,4 +229,8 @@
         android:name="com.example.project_af.Sentences"
         android:label="fragment_sentences"
         tools:layout="@layout/fragment_sentences" />
+    <fragment
+        android:id="@+id/quizScoreFragment"
+        android:name="com.example.project_af.QuizScoreFragment"
+        android:label="QuizScoreFragment" />
 </navigation>

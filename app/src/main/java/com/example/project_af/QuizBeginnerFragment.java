@@ -25,6 +25,9 @@ public class QuizBeginnerFragment extends Fragment {
 
         b1 = view.findViewById(R.id.btn11);
 
+
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

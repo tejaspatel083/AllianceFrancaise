@@ -32,9 +32,9 @@
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="350dp"
                 android:layout_centerHorizontal="true"
-                android:text="A."
                 android:gravity="left"
                 android:paddingLeft="25dp"
+                android:textAlignment="center"
                 android:textColor="#F3EE40"
                 android:textSize="50sp"/>
 
@@ -45,9 +45,10 @@
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="450dp"
                 android:layout_centerHorizontal="true"
-                android:text="B."
+
                 android:gravity="left"
                 android:paddingLeft="25dp"
+                android:textAlignment="center"
                 android:textColor="#F3EE40"
                 android:textSize="50sp"/>
 
@@ -58,9 +59,9 @@
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="550dp"
                 android:layout_centerHorizontal="true"
-                android:text="C."
                 android:gravity="left"
                 android:paddingLeft="25dp"
+                android:textAlignment="center"
                 android:textColor="#F3EE40"
                 android:textSize="50sp"/>
 
@@ -71,9 +72,9 @@
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="650dp"
                 android:layout_centerHorizontal="true"
-                android:text="D."
                 android:gravity="left"
                 android:paddingLeft="25dp"
+                android:textAlignment="center"
                 android:textColor="#F3EE40"
                 android:textSize="50sp"/>
 

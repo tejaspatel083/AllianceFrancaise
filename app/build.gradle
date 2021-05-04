@@ -13,6 +13,17 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -51,6 +62,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:22.0.0'
     implementation 'com.google.firebase:firebase-storage:19.1.0'
     implementation 'com.firebaseui:firebase-ui-database:1.1.1'
+    implementation 'com.firebase:firebase-client-android:2.3.1'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 }
