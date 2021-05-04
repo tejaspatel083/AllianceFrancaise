@@ -33,7 +33,7 @@
         android:id="@+id/scoreBeginner"
         android:layout_marginTop="290sp"
         android:layout_marginLeft="230sp"
-        
+
         android:textSize="20sp"/>
 
 
