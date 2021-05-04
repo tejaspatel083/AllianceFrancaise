@@ -35,6 +35,7 @@ public class ModerateFragment extends Fragment {
         t1 = view.findViewById(R.id.moderateGreetings);
         t2 = view.findViewById(R.id.moderateOccupations);
         t3 = view.findViewById(R.id.moderatePlaces);
+        t4 = view.findViewById(R.id.moderateQuiz);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,14 @@ public class ModerateFragment extends Fragment {
             public void onClick(View v) {
 
                 navController.navigate(R.id.places);
+            }
+        });
+
+        t4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                navController.navigate(R.id.quizModerateFragment);
             }
         });
 

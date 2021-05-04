@@ -5,15 +5,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
 public class QuizBeginnerFragment extends Fragment {
 
-    Button b1;
+    private ImageView queImg;
+    private TextView mScoreView;
+    private Button btnChoice1,btnChoice2,btnChoice3,btnChoice4;
+
+    private int mScore = 0;
+    private int mQuestionNumber = 1;
+    private String mAnswer;
+
+    private Firebase mQuestionRef,mAnswerRef,mChoice1Ref,mChoice2Ref,mChoice3Ref,mChoice4Ref;
+
 
     @Nullable
     @Override
@@ -23,23 +41,235 @@ public class QuizBeginnerFragment extends Fragment {
         getActivity().setTitle("Beginner Quiz");
 
 
-        b1 = view.findViewById(R.id.btn11);
+        queImg = view.findViewById(R.id.beginnerQuizImage);
+        mScoreView = view.findViewById(R.id.scoreBeginner);
+
+        btnChoice1 = view.findViewById(R.id.btnB1);
+        btnChoice2 = view.findViewById(R.id.btnB2);
+        btnChoice3 = view.findViewById(R.id.btnB3);
+        btnChoice4 = view.findViewById(R.id.btnB4);
+
+
+        updateQuestion(mScore);
 
 
 
-
-        b1.setOnClickListener(new View.OnClickListener() {
+        btnChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                QuizScoreFragment fragment = new QuizScoreFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentContainer,new QuizScoreFragment()).commit();
+                if (btnChoice1.getText().equals(mAnswer))
+                {
+                    mScore = mScore + 1;
+                    updateScore(mScore);
+                    updateQuestion(mScore);
+                }
+                else
+                {
+                    updateQuestion(mScore);
+                }
+            }
+        });
+
+        btnChoice2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (btnChoice2.getText().equals(mAnswer))
+                {
+                    mScore = mScore + 1;
+                    updateScore(mScore);
+                    updateQuestion(mScore);
+                }
+                else
+                {
+                    updateQuestion(mScore);
+                }
+            }
+        });
+
+        btnChoice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (btnChoice3.getText().equals(mAnswer))
+                {
+                    mScore = mScore + 1;
+                    updateScore(mScore);
+                    updateQuestion(mScore);
+                }
+                else
+                {
+                    updateQuestion(mScore);
+                }
+            }
+        });
+
+        btnChoice4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (btnChoice4.getText().equals(mAnswer))
+                {
+                    mScore = mScore + 1;
+                    updateScore(mScore);
+                    updateQuestion(mScore);
+                }
+                else
+                {
+                    updateQuestion(mScore);
+                }
             }
         });
 
 
 
+
+
         return view;
+    }
+
+
+
+
+    private void updateScore(int score)
+    {
+        mScoreView.setText(""+score);
+    }
+
+    private void updateQuestion(int result) {
+
+
+        mQuestionRef = new Firebase("https://alliancefrancaise-68d75-default-rtdb.firebaseio.com/Beginner/Quiz/"+mQuestionNumber+"/Question");
+
+        mQuestionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                String question = dataSnapshot.getValue(String.class);
+
+                Picasso.get().load(question).into(queImg);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        mChoice1Ref = new Firebase("https://alliancefrancaise-68d75-default-rtdb.firebaseio.com/Beginner/Quiz/"+mQuestionNumber+"/Choice1");
+
+
+        mChoice1Ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                String choice = dataSnapshot.getValue(String.class);
+                btnChoice1.setText(choice);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        mChoice2Ref = new Firebase("https://alliancefrancaise-68d75-default-rtdb.firebaseio.com/Beginner/Quiz/"+mQuestionNumber+"/Choice2");
+
+        mChoice2Ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                String choice = dataSnapshot.getValue(String.class);
+                btnChoice2.setText(choice);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        mChoice3Ref = new Firebase("https://alliancefrancaise-68d75-default-rtdb.firebaseio.com/Beginner/Quiz/"+mQuestionNumber+"/Choice3");
+
+        mChoice3Ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                String choice = dataSnapshot.getValue(String.class);
+                btnChoice3.setText(choice);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        mChoice4Ref = new Firebase("https://alliancefrancaise-68d75-default-rtdb.firebaseio.com/Beginner/Quiz/"+mQuestionNumber+"/Choice4");
+
+        mChoice4Ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                String choice = dataSnapshot.getValue(String.class);
+                btnChoice4.setText(choice);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        mAnswerRef = new Firebase("https://alliancefrancaise-68d75-default-rtdb.firebaseio.com/Beginner/Quiz/"+mQuestionNumber+"/Answer");
+
+        mAnswerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                mAnswer = dataSnapshot.getValue(String.class);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        mQuestionNumber++;
+
+        if (mQuestionNumber > 6)
+        {
+            Toast.makeText(getActivity(), "Quiz Ended", Toast.LENGTH_SHORT).show();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("key",String.valueOf(result));
+
+            Fragment fragment = null;
+            fragment = new QuizScoreFragment();
+            fragment.setArguments(bundle);
+
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.Host_Fragment2,fragment)
+                    .commit();
+        }
+
     }
 }

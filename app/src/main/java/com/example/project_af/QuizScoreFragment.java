@@ -32,7 +32,7 @@ public class QuizScoreFragment extends Fragment {
         if(bundle != null){
 
             s = bundle.getString("key");
-            scoreText.setText(s+"/5");
+            scoreText.setText(s+" / 5");
         }
         else
         {

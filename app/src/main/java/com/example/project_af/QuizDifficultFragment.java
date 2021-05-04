@@ -32,9 +32,6 @@ public class QuizDifficultFragment extends Fragment {
     private int dQuestionNumber = 1;
     private String dAnswer;
 
-    private NavController navController;
-
-
     private Firebase dQuestionRef,dAnswerRef,dChoice1Ref,dChoice2Ref,dChoice3Ref,dChoice4Ref;
 
 
@@ -45,15 +42,13 @@ public class QuizDifficultFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_quiz_difficult,container,false);
         getActivity().setTitle("Difficult Quiz");
 
-        navController = Navigation.findNavController(getActivity(),R.id.Host_Fragment2);
-
         queImg = view.findViewById(R.id.difficultQuizImage);
         dScoreView = view.findViewById(R.id.score);
 
-        btnChoice1 = view.findViewById(R.id.btnd1);
-        btnChoice2 = view.findViewById(R.id.btnd2);
-        btnChoice3 = view.findViewById(R.id.btnd3);
-        btnChoice4 = view.findViewById(R.id.btnd4);
+        btnChoice1 = view.findViewById(R.id.btnD1);
+        btnChoice2 = view.findViewById(R.id.btnD2);
+        btnChoice3 = view.findViewById(R.id.btnD3);
+        btnChoice4 = view.findViewById(R.id.btnD4);
 
 
         updateQuestion(dScore);

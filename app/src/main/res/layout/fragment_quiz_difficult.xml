@@ -39,7 +39,7 @@
             <Button
                 android:layout_width="330sp"
                 android:layout_height="70sp"
-                android:id="@+id/btnd1"
+                android:id="@+id/btnD1"
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="330dp"
                 android:layout_centerHorizontal="true"
@@ -50,7 +50,7 @@
             <Button
                 android:layout_width="330sp"
                 android:layout_height="70sp"
-                android:id="@+id/btnd2"
+                android:id="@+id/btnD2"
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="430dp"
                 android:layout_centerHorizontal="true"
@@ -61,7 +61,7 @@
             <Button
                 android:layout_width="330sp"
                 android:layout_height="70sp"
-                android:id="@+id/btnd3"
+                android:id="@+id/btnD3"
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="530dp"
                 android:layout_centerHorizontal="true"
@@ -73,7 +73,7 @@
             <Button
                 android:layout_width="330sp"
                 android:layout_height="70sp"
-                android:id="@+id/btnd4"
+                android:id="@+id/btnD4"
                 android:background="@drawable/button_background_2"
                 android:layout_marginTop="630dp"
                 android:layout_centerHorizontal="true"
