@@ -1,5 +1,6 @@
 package com.example.project_af;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,8 @@ public class QuizModerateFragment extends Fragment {
 
     private Firebase mQuestionRef,mAnswerRef,mChoice1Ref,mChoice2Ref,mChoice3Ref,mChoice4Ref;
 
+    private ProgressDialog progressDialog;
+
 
 
     @Nullable
@@ -47,8 +50,14 @@ public class QuizModerateFragment extends Fragment {
         btnChoice3 = view.findViewById(R.id.btnM3);
         btnChoice4 = view.findViewById(R.id.btnM4);
 
+        progressDialog = new ProgressDialog(getContext());
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
         updateQuestion(mScore);
+
+
 
 
         btnChoice1.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +67,7 @@ public class QuizModerateFragment extends Fragment {
                 if (btnChoice1.getText().equals(mAnswer))
                 {
                     mScore = mScore + 1;
-                    updateScore(mScore);
+                    //updateScore(mScore);
                     updateQuestion(mScore);
                 }
                 else
@@ -75,7 +84,7 @@ public class QuizModerateFragment extends Fragment {
                 if (btnChoice2.getText().equals(mAnswer))
                 {
                     mScore = mScore + 1;
-                    updateScore(mScore);
+                    //updateScore(mScore);
                     updateQuestion(mScore);
                 }
                 else
@@ -92,7 +101,7 @@ public class QuizModerateFragment extends Fragment {
                 if (btnChoice3.getText().equals(mAnswer))
                 {
                     mScore = mScore + 1;
-                    updateScore(mScore);
+                    //updateScore(mScore);
                     updateQuestion(mScore);
                 }
                 else
@@ -109,7 +118,7 @@ public class QuizModerateFragment extends Fragment {
                 if (btnChoice4.getText().equals(mAnswer))
                 {
                     mScore = mScore + 1;
-                    updateScore(mScore);
+                    //updateScore(mScore);
                     updateQuestion(mScore);
                 }
                 else
@@ -126,11 +135,13 @@ public class QuizModerateFragment extends Fragment {
     }
 
 
+/*
 
     private void updateScore(int score)
     {
         mScoreView.setText(""+score);
     }
+*/
 
     private void updateQuestion(int result) {
 
@@ -145,6 +156,7 @@ public class QuizModerateFragment extends Fragment {
                 String question = dataSnapshot.getValue(String.class);
 
                 Picasso.get().load(question).into(queImg);
+                progressDialog.dismiss();
 
             }
 

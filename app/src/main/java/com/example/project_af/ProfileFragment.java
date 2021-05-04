@@ -9,6 +9,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -51,6 +52,8 @@ public class ProfileFragment extends Fragment {
     private FirebaseStorage firebaseStorage;
 
 
+    private ProgressDialog progressDialog;
+
 
     @Nullable
     @Override
@@ -72,6 +75,12 @@ public class ProfileFragment extends Fragment {
         firebaseStorage = FirebaseStorage.getInstance();
 
 
+        progressDialog = new ProgressDialog(getContext());
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+
         StorageReference storageReference = firebaseStorage.getReference();
         storageReference.child("User Profile Images")
                 .child(firebaseAuth.getUid())
@@ -81,6 +90,7 @@ public class ProfileFragment extends Fragment {
                     public void onSuccess(Uri uri) {
 
                         Picasso.get().load(uri).into(dp);
+                        progressDialog.dismiss();
 
                     }
                 });
@@ -172,6 +182,7 @@ public class ProfileFragment extends Fragment {
                                 Toast toast = Toast.makeText(getActivity(),"Profile Updated",Toast.LENGTH_LONG);
                                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                                 toast.show();
+                                progressDialog.dismiss();
                                 //getActivity().recreate();
 
                             }
@@ -183,6 +194,7 @@ public class ProfileFragment extends Fragment {
                                 Toast toast = Toast.makeText(getActivity(),"Error : "+e.getMessage(),Toast.LENGTH_LONG);
                                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                                 toast.show();
+                                progressDialog.dismiss();
                             }
                         });
 

@@ -1,5 +1,6 @@
 package com.example.project_af;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,6 +35,8 @@ public class QuizDifficultFragment extends Fragment {
 
     private Firebase dQuestionRef,dAnswerRef,dChoice1Ref,dChoice2Ref,dChoice3Ref,dChoice4Ref;
 
+    private ProgressDialog progressDialog;
+
 
     @Nullable
     @Override
@@ -50,18 +53,26 @@ public class QuizDifficultFragment extends Fragment {
         btnChoice3 = view.findViewById(R.id.btnD3);
         btnChoice4 = view.findViewById(R.id.btnD4);
 
+        progressDialog = new ProgressDialog(getContext());
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
         updateQuestion(dScore);
 
 
-            btnChoice1.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        btnChoice1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     if (btnChoice1.getText().equals(dAnswer))
                     {
                         dScore = dScore + 1;
-                        updateScore(dScore);
+                        //updateScore(dScore);
                         updateQuestion(dScore);
                     }
                     else
@@ -71,14 +82,14 @@ public class QuizDifficultFragment extends Fragment {
                 }
             });
 
-            btnChoice2.setOnClickListener(new View.OnClickListener() {
+        btnChoice2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     if (btnChoice2.getText().equals(dAnswer))
                     {
                         dScore = dScore + 1;
-                        updateScore(dScore);
+                        //updateScore(dScore);
                         updateQuestion(dScore);
                     }
                     else
@@ -88,14 +99,14 @@ public class QuizDifficultFragment extends Fragment {
                 }
             });
 
-            btnChoice3.setOnClickListener(new View.OnClickListener() {
+        btnChoice3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     if (btnChoice3.getText().equals(dAnswer))
                     {
                         dScore = dScore + 1;
-                        updateScore(dScore);
+                        //updateScore(dScore);
                         updateQuestion(dScore);
                     }
                     else
@@ -105,14 +116,14 @@ public class QuizDifficultFragment extends Fragment {
                 }
             });
 
-            btnChoice4.setOnClickListener(new View.OnClickListener() {
+        btnChoice4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     if (btnChoice4.getText().equals(dAnswer))
                     {
                         dScore = dScore + 1;
-                        updateScore(dScore);
+                        //updateScore(dScore);
                         updateQuestion(dScore);
                     }
                     else
@@ -128,10 +139,13 @@ public class QuizDifficultFragment extends Fragment {
         return view;
     }
 
-    private void updateScore(int score)
+   /* private void updateScore(int score)
     {
         dScoreView.setText(""+score);
-    }
+    }*/
+
+
+
 
     private void updateQuestion(int result) {
 
@@ -146,6 +160,7 @@ public class QuizDifficultFragment extends Fragment {
                 String question = dataSnapshot.getValue(String.class);
 
                 Picasso.get().load(question).into(queImg);
+                progressDialog.dismiss();
 
             }
 

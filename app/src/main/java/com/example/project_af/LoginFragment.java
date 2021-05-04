@@ -1,5 +1,6 @@
 package com.example.project_af;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -37,19 +38,9 @@ public class LoginFragment extends Fragment {
     private TextView v1,iv1;
     private FirebaseAuth firebaseAuth;
 
-
-    //private OnFragmentInteractionListener mListener;
-
-    public LoginFragment() {
-        // Required empty public constructor
-    }
+    private ProgressDialog progressDialog;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +63,9 @@ public class LoginFragment extends Fragment {
         emailId = view.findViewById(R.id.MainEmail);
         v1 = view.findViewById(R.id.visible);
         iv1 = view.findViewById(R.id.notvisible);
+
+
+        progressDialog = new ProgressDialog(getContext());
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -113,8 +107,12 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                progressDialog.setMessage("Loading...");
+                progressDialog.show();
+
                 if (emailId.getText().toString().trim().length() == 0)
                 {
+                    progressDialog.dismiss();
                     emailId.setError("Email Id Required");
                     Toast toast = Toast.makeText(getActivity(),"Enter Email",Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -122,6 +120,7 @@ public class LoginFragment extends Fragment {
                 }
                 else if (pwd.getText().toString().trim().length() == 0)
                 {
+                    progressDialog.dismiss();
                     emailId.setError(null);
                     pwd.setError("Password Required");
                     Toast toast = Toast.makeText(getActivity(),"Enter Password",Toast.LENGTH_LONG);
@@ -134,7 +133,7 @@ public class LoginFragment extends Fragment {
                     pwd.setError(null);
 
                     String email = emailId.getText().toString().trim();
-                    String password = pwd.getText().toString().trim();
+                    final String password = pwd.getText().toString().trim();
 
 
                     firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -150,6 +149,7 @@ public class LoginFragment extends Fragment {
                             else
                             {
 
+                                progressDialog.dismiss();
                                 Toast toast = Toast.makeText(getActivity(),"Enter Valid Email and Password",Toast.LENGTH_LONG);
                                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                                 toast.show();
@@ -179,12 +179,14 @@ public class LoginFragment extends Fragment {
         if(emailflag)
         {
 
+            progressDialog.dismiss();
             Toast.makeText(getActivity(), "Login SuccessFull", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getActivity(),HomePage.class);
             startActivity(intent);
         }
         else
         {
+            progressDialog.dismiss();
             Toast.makeText(getActivity(), "Please verify your Email", Toast.LENGTH_SHORT).show();
         }
 
